@@ -1,24 +1,40 @@
-const express = require('express');
-const logger = require('morgan');
-const bodyParser = require('body-parser');
-const userRoutes = require('./server/routes/user.routes')
+const express = require("express");
+const bodyParser = require("body-parser");
 
-// Set up the express app
+const adminRoute = require("./routes/admin");
+const menuRoute = require("./routes/menu");
+const userRoute = require("./routes/user");
+const invoiceRoute = require("./routes/invoice");
+const subscriptionRoute = require("./routes/subscription");
+
 const app = express();
 
-// Log requests to the console.
-app.use(logger('dev'));
+const multiParty = require("connect-multiparty");
 
-// Parse incoming requests data (https://github.com/expressjs/body-parser)
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+PORT = process.env.PORT || 8080;
 
-// Setup a default catch-all route that sends back a welcome message in JSON format.
-// app.get('*', (req, res) => res.status(200).send({
-//   message: 'Welcome to the beginning.',
-// }));
+require("dotenv").config();
 
-// userRoutes.use('/user',userRoutes.)
-app.use('/user',userRoutes)
+app.use(express.json());
 
-module.exports = app;
+app.use(express.urlencoded({ extended: true }));
+
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(multiParty());
+
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.post('/es',es.postesdata);
+
+app.use("/images", express.static("./images"));
+
+app.use("/api/admin", adminRoute);
+app.use("/api/menu", menuRoute);
+app.use("/api/user", userRoute);
+app.use("/api/invoice", invoiceRoute);
+app.use("/api/subscription", subscriptionRoute);
+
+app.listen(PORT, () => {
+  console.log(`listing on http://127.0.0.1:${PORT}`);
+});
