@@ -1,0 +1,118 @@
+<div class="container">
+  <h1 class="text-color">Create Dish</h1>
+  <form *ngIf="flag == 'create'">
+    <mat-form-field appearance="fill" style="width: 50vw">
+      <mat-label>Name</mat-label>
+      <input
+        class="w-100"
+        matInput
+        placeholder="name"
+        type="text"
+        [formControl]="name"
+        required
+      />
+      <!-- <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill" style="width: 50vw">
+      <mat-label>Description</mat-label>
+      <textarea
+        class="w-100"
+        matInput
+        placeholder="Description"
+        type="text"
+        [formControl]="description"
+        required
+      ></textarea>
+      <!-- <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill" style="width: 50vw">
+      <mat-label>Price</mat-label>
+      <input
+        class="w-100"
+        matInput
+        placeholder="Price"
+        type="number"
+        [formControl]="price"
+        required
+      />
+      <!-- <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <br />
+    <div><label class="text-color">Upload Image</label></div>
+    <div class="mt-2">
+      <input type="file" (change)="onUpload($event)" required />
+    </div>
+    <div mat-dialog-actions class="float-end">
+      <button
+        [mat-dialog-close]
+        type="submit"
+        mat-raised-button
+        color="primary"
+        (click)="createDish()"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+  <form #f="ngForm" *ngIf="flag == 'edit'">
+    <mat-form-field appearance="fill" style="width: 50vw">
+      <mat-label>Name</mat-label>
+      <input
+        class="w-100"
+        matInput
+        placeholder="name"
+        type="text"
+        [(ngModel)]="name2"
+        required
+        [ngModelOptions]="{ standalone: true }"
+      />
+      <!-- <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill" style="width: 50vw">
+      <mat-label>Description</mat-label>
+      <textarea
+        class="w-100"
+        matInput
+        placeholder="Description"
+        type="text"
+        [(ngModel)]="description2"
+        required
+        [ngModelOptions]="{ standalone: true }"
+      ></textarea>
+      <!-- <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill" style="width: 50vw">
+      <mat-label>Price</mat-label>
+      <input
+        class="w-100"
+        matInput
+        placeholder="Price"
+        type="number"
+        [(ngModel)]="price2"
+        required
+        [ngModelOptions]="{ standalone: true }"
+      />
+      <!-- <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <br />
+    <div><label class="text-color">Upload Image</label></div>
+    <div class="mt-2">
+      <input type="file" (change)="onUpload($event)" required />
+    </div>
+    <div mat-dialog-actions class="float-end">
+      <button
+        [mat-dialog-close]
+        type="submit"
+        mat-raised-button
+        color="primary"
+        (click)="updateDish()"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

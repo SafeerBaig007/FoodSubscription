@@ -1,0 +1,14 @@
+.text-color {
+    color: #673ab7 !important
+  }
+  .size-image {
+      width: 50%;
+  }
+
+  .text {
+      color: white;
+      background: #673ab7 !important;
+      padding: 10px;
+      border-radius: 10px;
+      width: 50%;
+  }

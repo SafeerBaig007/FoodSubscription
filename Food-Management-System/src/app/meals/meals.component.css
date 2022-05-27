@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+  }
+
+  .text-color {
+    color: #673ab7 !important
+  }
+
+  .text {
+      width: 14%;
+      padding: 10px;
+      background: #673ab7 !important;
+      color: white;
+      border-radius: 10px;
+  }

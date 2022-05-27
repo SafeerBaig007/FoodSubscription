@@ -1,0 +1,25 @@
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.text-color {
+  color: #673ab7 !important
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

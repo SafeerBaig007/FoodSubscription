@@ -1,0 +1,39 @@
+<section class="container">
+  <p class="text-color fw-bold fs-1 mt-3">Dashboard</p>
+  <!-- <div class="d-flex flex-wrap"> -->
+    <button
+      class="mt-2 float-end"
+      mat-raised-button
+      color="primary"
+      (click)="openDialog()"
+    >
+    Create Food
+    </button>
+  <!-- </div> -->
+</section>
+<br>
+<section class="container mt-4">
+  <div class="d-flex flex-wrap">
+    <mat-card *ngFor="let dish of dishService.getDishes" class="card-width m-1">
+      <mat-card-title-group>
+        <mat-card-title class="text-capitalize">{{dish.name}}</mat-card-title>
+        <mat-card-subtitle>Price: {{dish.price}}</mat-card-subtitle>
+        <img
+          mat-card-lg-image
+          src={{dish.image}}
+        />
+      </mat-card-title-group>
+      <mat-card-content>
+        {{ longText }}
+      </mat-card-content>
+      <div class="float-end">
+      <button mat-mini-fab color="warn" (click)="editDialog(dish)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button class="ms-1" mat-mini-fab color="warn" (click)="deleteDish(dish.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    </mat-card>
+  </div>
+ </section>

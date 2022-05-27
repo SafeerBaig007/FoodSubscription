@@ -1,0 +1,7 @@
+<div class="container">
+  <form [formGroup]="uploadForm">
+    <h1>Upload file</h1>
+    <input type="file" (change)="onUpload($event)" />
+    <button (click)="onSubmit()">on submit</button>
+  </form>
+</div>

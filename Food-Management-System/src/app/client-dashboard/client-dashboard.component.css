@@ -1,0 +1,21 @@
+.card-width {
+    width: 400px;
+  }
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .text-color {
+    color: #673ab7 !important
+  }
+  .left {
+    float: left !important; 
+  }
+
+  .active {
+    background: gray;
+    color: black;
+  }
+  

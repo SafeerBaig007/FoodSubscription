@@ -1,0 +1,27 @@
+<section class="container">
+    <p class="text-color fw-bold fs-1 mt-3">Dashboard Client</p>
+</section>
+  <br>
+  <section class="container mt-4">
+    <div class="d-flex flex-wrap">
+      <mat-card *ngFor="let dish of dishService.getDishes" class="card-width m-1">
+        <mat-card-title-group>
+          <mat-card-title class="text-capitalize">{{dish.name}}</mat-card-title>
+          <mat-card-subtitle>Price: {{dish.price}} Rs</mat-card-subtitle>
+          <img
+            mat-card-lg-image
+            src={{dish.image}}
+          />
+        </mat-card-title-group>
+        <mat-card-content>
+          {{ longText }}
+        </mat-card-content>
+        <div class="float-start">
+        <button mat-raised-button color="warn" [class.active]="dish.id == subscribeService.getSubscribedUser?.dish_id" (click)="subscribe(dish)">
+          {{dish.id == subscribeService.getSubscribedUser?.dish_id ? "Subscribed" : "Subscribe"}}
+        </button>
+      </div>
+      </mat-card>
+    </div>
+   </section>
+  

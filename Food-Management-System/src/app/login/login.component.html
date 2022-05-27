@@ -1,0 +1,35 @@
+<section class="vh-100 container d-flex align-items-center justify-content-center">
+      <div class="row">
+        <p class="text-color fw-bold fs-1">Login</p>
+          <form>
+            <div *ngIf="inValidLogin" class="alert alert-danger">Invalid username and/or password!</div>
+            <!-- <div class="form-outline mb-4">
+              <input type="email" name="email" [(ngModel)]="email" class="form-control form-control-lg" />
+              <label class="form-label" for="form1Example13">Email address</label>
+            </div> -->
+            <label class="text-color mt-1 mb-1" for="email">Email</label>
+            <br>
+            <mat-form-field appearance="fill" style="width:50vw">
+              <mat-label>Enter your email</mat-label>
+              <input class="w-100" matInput placeholder="pat@example.com" type="email" [formControl]="email" required/>
+              <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <br>
+            <label class="text-color mt-1 mb-1" for="password">Password</label>
+            <br>
+            <mat-form-field appearance="fill" style="width:50vw">
+              <mat-label>Enter your Password</mat-label>
+              <input class="w-100" matInput placeholder="*****" type="password" [formControl]="password" required/>
+              <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <br>
+            <!-- <div class="form-outline mb-4">
+              <input type="password" name="password" [(ngModel)]="password"  class="form-control form-control-lg" />
+            </div> -->
+  
+            <button type="submit" mat-raised-button color="primary" (click)="signIn()">Sign in</button>
+  
+          </form>
+      </div>
+      <img src="../assets/login.png" alt="">
+  </section>

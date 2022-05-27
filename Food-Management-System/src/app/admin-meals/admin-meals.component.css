@@ -1,0 +1,29 @@
+.example-detail-row {
+    height: 0;
+  }
+  
+  .example-element-row td {
+    border-bottom-width: 0;
+  }
+  
+  .example-element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+  .td-width {
+    width: 500px;
+    padding: 5px;
+  }
+
+  table {
+      width: 100%;
+  }
+  .blue {
+    color: rgb(31, 90, 218);
+}
+.red {
+    color: red;
+}
+.text-color {
+  color: #673ab7 !important
+}

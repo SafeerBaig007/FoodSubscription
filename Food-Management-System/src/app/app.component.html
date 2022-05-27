@@ -1,0 +1,88 @@
+<mat-toolbar *ngIf="showHead">
+  <div>Bhatti Food</div>
+  <div *ngIf="!role" class="spacer2 d-flex justify-content-center">
+    <button
+      mat-button
+      [class.active]="eventUrl === '/dashboard'"
+      routerLink="/dashboard"
+    >
+      Menus
+    </button>
+    <button
+      mat-button
+      [class.active]="eventUrl === '/meals'"
+      routerLink="/meals"
+    >
+      Meals
+    </button>
+    <button
+      mat-button
+      [class.active]="eventUrl === '/payment'"
+      routerLink="/payment"
+    >
+      Payment
+    </button>
+    <button
+      mat-button
+      [class.active]="eventUrl === '/about'"
+      routerLink="/about"
+    >
+      About
+    </button>
+  </div>
+  <span class="spacer"></span>
+  <button *ngIf="!role" mat-raised-button color="accent" (click)="logout()">
+    Logout
+  </button>
+</mat-toolbar>
+<ng-container *ngIf="!role; then notauthenticated; else authenticate">
+</ng-container>
+<ng-template #notauthenticated>
+  <router-outlet></router-outlet>
+</ng-template>
+
+<ng-template #authenticate>
+  <mat-sidenav-container>
+    <mat-sidenav *ngIf="role" mode="side" [opened]="boolean_var | async">
+      <button
+        mat-button
+        class="menu-button"
+        [class.active]="eventUrl === '/admin/dashboard'"
+        routerLink="/admin/dashboard"
+      >
+        <mat-icon>dashboard</mat-icon>
+        <span class="ms-2">Dashboard</span>
+      </button>
+      <button
+        mat-button
+        class="menu-button"
+        [class.active]="eventUrl === '/subscriber'"
+        routerLink="/subscriber"
+      >
+        <mat-icon>people</mat-icon>
+        <span class="ms-2">Subscribers</span>
+      </button>
+      <button
+        mat-button
+        class="menu-button"
+        [class.active]="eventUrl === '/admin/meals'"
+        routerLink="/admin/meals"
+      >
+        <mat-icon>cake</mat-icon>
+        <span class="ms-2">Meals</span>
+      </button>
+      <button mat-button class="menu-button" [class.active]="eventUrl === '/admin/payment'"
+      routerLink="/admin/payment">
+        <mat-icon>payment</mat-icon>
+        <span class="ms-2">Payment</span>
+      </button>
+      <button mat-button class="menu-button" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span class="ms-2">Logout</span>
+      </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-template>

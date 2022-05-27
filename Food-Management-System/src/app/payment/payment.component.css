@@ -1,0 +1,25 @@
+table {
+    width: 50%;
+  }
+
+  .text-color {
+    color: #673ab7 !important;
+    font-size: 1.3rem;
+  }
+
+  .text {
+      width: 14%;
+      padding: 10px;
+      background: #673ab7 !important;
+      color: white;
+      border-radius: 10px;
+  }
+  .blue {
+      color: rgb(31, 90, 218);
+  }
+  .red {
+      color: red;
+  }
+  .spacer {
+    flex: 1 1 auto;
+  }
