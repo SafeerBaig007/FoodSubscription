@@ -31,7 +31,7 @@ section {
   }
 
   mat-toolbar {
-    background-color: rgb(129, 37, 235);;
+    background-color: #d70f64;;
     color: white;
     font-size: 2.3rem;
   }
@@ -40,7 +40,7 @@ section {
     /* margin: 16px; */
     width: 300px;
     border-right: none;
-    background-color: rgb(129, 37, 235);
+    background-color: #d70f64;
     /* border-radius: 10px; */
     padding: 16px;
     text-align: center;
@@ -80,7 +80,7 @@ section {
 
   .active {
     background-color: white;
-    color: rgb(129, 37, 235);
+    color: #d70f64;
   }
 
   .white {
